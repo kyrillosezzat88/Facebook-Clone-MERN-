@@ -5,7 +5,8 @@ import './index.css'
 import reportWebVitals from './reportWebVitals';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://localhost:5000/api/v1/';
+//https://facebook-clone-mern-stack.herokuapp.com/api/v1/
+axios.defaults.baseURL = 'https://facebook-clone-mern-stack.herokuapp.com/api/v1/';
 axios.defaults.headers = {Authorization:`Bearer ${localStorage.getItem('AccessToken')}`}
 
 ReactDOM.render(

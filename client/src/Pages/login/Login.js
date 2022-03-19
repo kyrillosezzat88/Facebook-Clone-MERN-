@@ -28,7 +28,8 @@ const Login = () => {
             localStorage.setItem("AccessToken" , res.data.token);
             setWaiting(false);
             dispatchUser({type:"LOGIN" , payload:res.data})
-            Navigate('/')
+            window.location.replace('/')
+            // Navigate('/')
         }).catch(err => {
             setWaiting(false)
             setErr(err.response.data.message)

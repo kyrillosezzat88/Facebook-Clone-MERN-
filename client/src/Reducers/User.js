@@ -6,6 +6,12 @@ const UserReducer = (state , action ) => {
                 isAuth:true,
                 info:action.payload
             }
+        case "LOGOUT":
+            localStorage.removeItem('AccessToken');
+            return{
+                isAuth:false,
+                info:{}
+            }
         default:
             return state;
     }

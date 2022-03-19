@@ -14,6 +14,6 @@ UserRoute.get('/profile' , Auth , ProfileInfo);
 // get other user info 
 UserRoute.get('/:userId' , Auth , UserInfo);
 //edit user 
-UserRoute.put('/edit' , Auth , uploadOptions.single('profile_pic') , editUser);
+UserRoute.put('/edit' , Auth , uploadOptions.fields([{name:'profile_pic' , maxCount:1} , {name:'cover_pic' , maxCount:1}]) , editUser);
 
 module.exports = UserRoute;

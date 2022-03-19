@@ -1,5 +1,4 @@
 import axios from "axios";
-
 //get signed user profile info 
 export const ProfileInfo = () => axios.get('user/profile');
 //get user profile (other users )

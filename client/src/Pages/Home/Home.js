@@ -18,21 +18,19 @@ const Home = () => {
     const [Waiting , setWaiting ] = useState(false)
     window.onclick = () => {setCreatePost(false)}
     useEffect(() => {
-        if(!Object.keys(UserGState.info).length ){
             (async() =>{
                 setWaiting(true);
-                // get user info 
-                const [profileInfo , followingPosts] = await Promise.all([
-                    // profile info
-                    ProfileInfo().catch(err => HanldleErr(err)),
-                    // get all following posts 
-                    FollowingPosts().catch(err => HanldleErr(err)),
-                ]);
-                setWaiting(false)
-                dispatchUser({type:"USER_INFO" , payload:profileInfo.data});
-                disptachPost({type:"FOLLOWING_POSTS" , payload:followingPosts.data});
+                // get all following posts
+                await FollowingPosts().then(res => {
+                    console.log(res.data)
+                    disptachPost({type:"FOLLOWING_POSTS" , payload:res.data});
+                    setWaiting(false)
+                }).catch(err => {
+                    setWaiting(false)
+                    HanldleErr(err)
+                })
+                
             })();
-        }
     },[])
     if(!Waiting){
     return(

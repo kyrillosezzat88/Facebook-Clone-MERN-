@@ -55,9 +55,9 @@ const Profile = () => {
         }
     },[]);
     //update profile info like profile pic and cover pic for now 
-    const updateProfile = async (profile_pic) => {
+    const updateProfile = async (value , field) => {
         var formData = new FormData();
-        formData.append('profile_pic' , profile_pic);
+        formData.append(field , value);
         const config = {
             headers: {
                 "Content-Type": "multipart/form-data",
@@ -79,9 +79,9 @@ const Profile = () => {
                     {UserGState.info.cover_pic&&
                         <img src={UserGState.info.cover_pic} width='100%' height='350px' />
                     }
-                    <input id='coverPhoto' type='file' hidden/>
+                    <input id='coverPhoto' type='file' hidden onChange={(e) => updateProfile( e.target.files[0] , 'cover_pic')}/>
                     <label htmlFor='coverPhoto'>
-                        <Button variant='contained'> <CameraAltIcon /> <span className='text'> Edit Cover Photo</span></Button>
+                        <CameraAltIcon /> <span className='text'> Edit Cover Photo</span>
                     </label>
                 </Box>
             </Box>
@@ -92,7 +92,7 @@ const Profile = () => {
                         <Box className='leftSide' display='flex' alignItems='end'>
                             <Box className='profilePic'>
                                 <img src={UserGState.info.profile_pic} alt="profilepic" width='168px' height='168px' />
-                                <input type="file" hidden id='profile-Img' onChange={(e) => updateProfile( e.target.files[0])}/>
+                                <input type="file" hidden id='profile-Img' onChange={(e) => updateProfile( e.target.files[0] , 'profile_pic')}/>
                                 <label htmlFor="profile-Img"> <CameraAltIcon /></label>
                             </Box>
                             <Box className='info'>

@@ -139,7 +139,7 @@ const Post = ({data , OpenCreatePost , setPostData}) => {
                 ))}
             </Box>
             <form className='addComment' onSubmit={submitComment} >
-                <img src={data.user.profile_pic} alt='profile' width="32px" height='32px' />
+                <img src={UserGState.info.profile_pic} alt='profile' width="50px" height='32px' />
                 <input placeholder='Write a comment' id='comment' className={lang === 'AR'&&"ArContent"} value={comment.comment} onChange={(e) => addContent(e.target.value)}  />
                 <Box display='flex' className='icons'>
                     <InsertEmoticonIcon />

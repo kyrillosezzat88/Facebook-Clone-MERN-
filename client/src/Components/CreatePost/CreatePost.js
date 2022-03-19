@@ -21,9 +21,6 @@ const CreatePost = ({Open , Data}) => {
     const [Waiting , setWaiting ] = useState(false); // for waiting when create new post
     const [lang  ,setLang] = useState("EN") // for direction of content of post languages user entered 
     //function create new post 
-    useEffect(() => {
-        console.log(Data)
-    },[])
     const AddPost = async () => {
         setWaiting(true)
         var formData = new FormData();

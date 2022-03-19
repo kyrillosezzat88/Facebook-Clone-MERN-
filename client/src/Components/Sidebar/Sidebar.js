@@ -1,11 +1,18 @@
 import {useContext} from 'react';
 import { Box , Typography , List , ListItem } from "@material-ui/core"
-import Profile from '../../Assets/images/profile.jpeg'
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import {Link} from 'react-router-dom'
 import './Sidebar.scss'
 import { AppContenxt } from '../../ContextApi/AppContext';
+import { useNavigate } from 'react-router-dom';
 const Sidebar = () => {
-    const {UserGState} = useContext(AppContenxt)
+    const {UserGState , dispatchUser} = useContext(AppContenxt)
+    const navigate = useNavigate();
+    //logout function
+    const Logout = () => {
+        dispatchUser({type:"LOGOUT"})
+        navigate('/login');
+    }
     return(
         <Box className="Sidebar">
             <List component="nav" aria-label="main mailbox folder">
@@ -36,6 +43,10 @@ const Sidebar = () => {
                 <ListItem button>
                     <img src="https://static.xx.fbcdn.net/rsrc.php/v3/y7/r/AYj2837MmgX.png" alt="groups" width="28px" height="28px" />
                     <Typography variant="subtitle1">Memories</Typography>
+                </ListItem>
+                <ListItem button onClick={Logout}>
+                    <ExitToAppIcon/>
+                    <Typography variant="subtitle1">Logout</Typography>
                 </ListItem>
             </List>
         </Box>

@@ -9,7 +9,8 @@ const PostReducer = (state , action ) => {
         case "ADD_POST":
             return{
                 ...state,
-                userPosts:[action.payload , ...state.userPosts]
+                userPosts:[action.payload , ...state.userPosts],
+                all_Posts:[action.payload , ...state.all_Posts]
             }
 
         case "ADD_COMMENT":

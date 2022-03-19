@@ -5,6 +5,7 @@ import FindFriends from './Pages/FindFriends/FindFriends';
 import Home from './Pages/Home/Home';
 import Login from './Pages/login/Login';
 import Profile from './Pages/Profile/Profile';
+
 function App() {
   return (
     <AppProvider>
