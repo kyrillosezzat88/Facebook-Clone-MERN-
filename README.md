@@ -3,6 +3,9 @@ Facebook clone using Mongodb , Express , React and Node js
 
 ![This is an image](https://i.ibb.co/tZFQLLm/2022-03-19-16-48.png)
 
+### Live Demo (using netlify and heroku)
+https://facebookke.netlify.app/
+
 ## Technology 
 ### Frontend 
 - React js 
